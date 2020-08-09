@@ -2,18 +2,15 @@ import React, { FC } from 'react'
 import { NavLinkProps, Route, Link } from 'react-router-dom'
 
 const SafeNavLink: FC<NavLinkProps> = (props: NavLinkProps) => {
-  const { to, exact, strict, ...rest } = props
+  const { to, exact, strict, className, activeClassName, ...rest } = props
   return (
     <Route path={to.toString()} exact={exact} strict={strict}>
       {({ match }) => {
-        const activeClassName = [
-          props.className,
-          props.activeClassName || 'active',
-        ]
+        const activeClass = [className, activeClassName || 'active']
           .filter((string) => !!string)
           .join(' ')
         return match ? (
-          <span className={activeClassName} style={props.activeStyle} {...rest}>
+          <span {...rest} className={activeClass} style={props.activeStyle}>
             {props.children}
           </span>
         ) : (

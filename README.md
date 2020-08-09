@@ -6,3 +6,6 @@ some useful component base on react router dom
 ### SafeNavLink
 
 ### AuthenticatedRoute
+
+#### AuthRoute
+#### UnAuthRoute
