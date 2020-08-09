@@ -62,3 +62,15 @@ test('should render a element when link is not match current path with exact', f
   expect(getByTestId(id).tagName).toEqual('A')
   expect(getByTestId(id)).toHaveAttribute('href', '/')
 })
+
+test('should render a element when link is match current path but isActive return false', function () {
+  const id = 'link'
+  const { getByTestId } = renderWithRouter(
+    <SafeNavLink to="/" data-testid={id} isActive={() => false} />,
+    {
+      route: '/',
+    },
+  )
+  expect(getByTestId(id).tagName).toEqual('A')
+  expect(getByTestId(id)).toHaveAttribute('href', '/')
+})
