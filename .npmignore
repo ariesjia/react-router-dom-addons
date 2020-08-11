@@ -4,6 +4,8 @@ TODO.md
 *.log
 .idea
 src
+build
+.github
 .babelrc
 .huskyrc
 .travis.yml
@@ -11,3 +13,4 @@ commitlint.config.js
 .storybook
 test/unit/coverage/
 test-report.xml
+dist/*.test.d.ts

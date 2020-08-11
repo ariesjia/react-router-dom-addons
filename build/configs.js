@@ -43,13 +43,13 @@ function genConfig (opts) {
           tsconfigOverride: {
             compilerOptions: {
               declaration: true,
-              rootDir: 'src',
             }
           }
         }),
       ],
       external: [
         'react',
+        'react-router',
         'react-router-dom'
       ],
     },

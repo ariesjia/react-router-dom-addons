@@ -6,7 +6,7 @@
     "jsx": "react",
     "declaration": false,
     "pretty": true,
-    "rootDir": "src",
+    "rootDir": "./src",
     "esModuleInterop": true,
     "sourceMap": false,
     "strict": true,
