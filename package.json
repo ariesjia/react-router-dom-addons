@@ -21,7 +21,9 @@
     "url": "https://github.com/ariesjia/react-router-dom-addons/issues"
   },
   "homepage": "https://github.com/ariesjia/react-router-dom-addons#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react-router-dom-addons": "^1.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
