@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/ariesjia/react-router-dom-addons#readme",
   "dependencies": {
-    "react-router-dom-addons": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
