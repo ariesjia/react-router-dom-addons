@@ -5,6 +5,7 @@ import AuthenticatedRoute, {
 
 export { default as SafeNavLink } from './SafeNavLink'
 export { default as AuthenticatedRoute } from './AuthenticatedRoute'
+export { default as LeaveGuard } from './LeaveGuard'
 
 export const AuthRoute = (props: AuthenticatedRouteProps) => {
   const { authenticated, ...rest } = props

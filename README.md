@@ -16,3 +16,5 @@ some useful component base on react router dom
 
 #### AuthRoute
 #### UnAuthRoute
+
+### LeaveGuard
