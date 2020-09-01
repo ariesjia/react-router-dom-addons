@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderWithRouter } from '../test/test-util'
-import { SafeNavLink } from './index'
+import SafeNavLink from './SafeNavLink'
 
 test('should render span element when link is match current path', function () {
   const id = 'link'

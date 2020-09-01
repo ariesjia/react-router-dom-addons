@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderWithRouter } from '../test/test-util'
-import { AuthRoute, UnAuthRoute } from './index'
+import { AuthRoute, UnAuthRoute } from './AuthRoute'
 
 describe('AuthRoute test', function () {
   test('should render component when authenticated is true', function () {
@@ -22,13 +22,13 @@ describe('AuthRoute test', function () {
   test('should redirect to `redirectTo` path  when authenticated is false', function () {
     const { history, queryByText } = renderWithRouter(
       <AuthRoute
-        path="/"
+        path="/x"
         redirectTo="/login"
         authenticated={false}
         component={() => <div>home</div>}
       />,
       {
-        route: '/',
+        route: '/x',
       },
     )
     expect(history.location.pathname).toEqual('/login')

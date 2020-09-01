@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { PromptProps, useHistory } from 'react-router'
-import { Location, History } from 'history'
+import { Location, History, Action } from 'history'
 import { Prompt } from 'react-router-dom'
 
 interface LeaveGuardProps {
@@ -17,7 +17,7 @@ const LeaveGuard = (props: LeaveGuardProps) => {
   const confirmedRef = useRef(false)
   const pendingRef = useRef(false)
 
-  function handleBlock(location, action) {
+  function handleBlock(location: Location, action: Action) {
     if (!pendingRef.current && !confirmedRef.current && shouldBlock(location)) {
       const message = onMessage && onMessage(location)
       if (message) {
