@@ -1,6 +1,6 @@
-import React, { FC, useRef } from 'react'
+import React, { useRef } from 'react'
 import { PromptProps, useHistory } from 'react-router'
-import { Location, History, Action } from 'history'
+import { Location, History } from 'history'
 import { Prompt } from 'react-router-dom'
 
 interface LeaveGuardProps {
@@ -27,7 +27,7 @@ const LeaveGuard = (props: LeaveGuardProps) => {
             confirmedRef.current = true
             const navigateMethod = navigate
               ? navigate
-              : action === Action.Replace
+              : action === 'REPLACE'
               ? history.replace
               : history.push
             navigateMethod(location)
