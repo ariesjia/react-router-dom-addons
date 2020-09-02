@@ -10,6 +10,14 @@ interface LeaveGuardProps {
   navigate?: History['push'] | History['replace']
 }
 
+function getNavigateMethod(action: Action, history: History) {
+  return {
+    POP: history.goBack,
+    PUSH: history.push,
+    REPLACE: history.replace,
+  }[action]
+}
+
 const LeaveGuard = (props: LeaveGuardProps) => {
   const { when, shouldBlock, onMessage, navigate } = props
   const history = useHistory()
@@ -22,20 +30,22 @@ const LeaveGuard = (props: LeaveGuardProps) => {
       const message = onMessage && onMessage(location)
       if (message) {
         pendingRef.current = true
-        message
-          .then(() => {
+        message.then(
+          () => {
+            pendingRef.current = false
             confirmedRef.current = true
             const navigateMethod = navigate
               ? navigate
-              : action === 'REPLACE'
-              ? history.replace
-              : history.push
+              : getNavigateMethod(action, history)
             navigateMethod(location)
-          })
-          .finally(() => {
+          },
+          () => {
             pendingRef.current = false
-          })
+          },
+        )
       }
+      return false
+    } else if (pendingRef.current) {
       return false
     }
     return true

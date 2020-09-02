@@ -11,9 +11,6 @@ describe('AuthRoute test', function () {
         authenticated={true}
         component={() => <div>home</div>}
       />,
-      {
-        route: '/',
-      },
     )
     expect(history.location.pathname).toEqual('/')
     expect(queryByText('home')).toBeInTheDocument()
@@ -28,7 +25,7 @@ describe('AuthRoute test', function () {
         component={() => <div>home</div>}
       />,
       {
-        route: '/x',
+        route: ['/x'],
       },
     )
     expect(history.location.pathname).toEqual('/login')
@@ -46,7 +43,7 @@ describe('UnAuthRoute test', function () {
         component={() => <div>login</div>}
       />,
       {
-        route: '/login',
+        route: ['/login'],
       },
     )
     expect(history.location.pathname).toEqual('/')
@@ -62,7 +59,7 @@ describe('UnAuthRoute test', function () {
         component={() => <div>login</div>}
       />,
       {
-        route: '/login',
+        route: ['/login'],
       },
     )
     expect(history.location.pathname).toEqual('/login')
