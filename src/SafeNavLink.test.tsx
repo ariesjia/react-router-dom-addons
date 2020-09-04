@@ -62,3 +62,11 @@ test('should render a element when link is match current path but isActive retur
   expect(getByTestId(id).tagName).toEqual('A')
   expect(getByTestId(id)).toHaveAttribute('href', '/')
 })
+
+test('should render span element when link is not match current path but isActive return true', function () {
+  const id = 'link'
+  const { getByTestId } = renderWithRouter(
+    <SafeNavLink to="/test" data-testid={id} isActive={() => true} />,
+  )
+  expect(getByTestId(id).tagName).toEqual('SPAN')
+})

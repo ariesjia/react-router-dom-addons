@@ -16,6 +16,14 @@ describe('AuthRoute test', function () {
     expect(queryByText('home')).toBeInTheDocument()
   })
 
+  test('should render empty when authenticated is true and component is not defined', function () {
+    const { history, container } = renderWithRouter(
+      <AuthRoute path="/" redirectTo="/login" authenticated={true} />,
+    )
+    expect(history.location.pathname).toEqual('/')
+    expect(container.innerHTML).toEqual('')
+  })
+
   test('should redirect to `redirectTo` path  when authenticated is false', function () {
     const { history, queryByText } = renderWithRouter(
       <AuthRoute
